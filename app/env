@@ -1,0 +1,7 @@
+MONGODB_URI=mongodb://mongodb:27017/user_db
+REDIS_HOST=redis-cluster
+REDIS_PORT=7000
+REDIS_DB=0
+REDIS_TTL=86400
+REDIS_CLUSTER_IP_PORT=redis-cluster:7000,redis-cluster:7001,redis-cluster:7002,redis-cluster:7003,redis-cluster:7004,redis-cluster:7005
+NODE_ENV=development

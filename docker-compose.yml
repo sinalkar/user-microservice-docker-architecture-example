@@ -1,0 +1,165 @@
+    # User Service building
+    
+version: "2.0"
+ 
+services:
+    user-haproxy:
+      container_name: user-haproxy
+      image: techvit/user-haproxy
+      hostname: haproxy.local
+      build: 
+        context: ./haproxy/
+        dockerfile: Dockerfile
+      volumes:
+        - /mnt/logs:/logs
+      links:
+        - "app1:app1"
+        - "app2:app2"
+        - "app3:app3"
+        - "app4:app4"
+      ports:
+        - "8089:80"
+        - "443:443"
+        - "8090:8080"
+      environment:
+        - "TZ=Asia/Kolkata"  
+      networks:
+        - techvit-test-network   
+    app1:
+      container_name: user-service-app-1 
+      image: techvit/user-service-app
+      hostname: app1.local
+      restart: always
+      build: 
+        context: ./app/
+        dockerfile: Dockerfile
+      links:
+        - mongodb
+        - redis-cluster  
+      ports:
+      - "81"
+      - "8081:8080"
+      environment:
+        - "TZ=Asia/Kolkata"
+      volumes:
+        - /mnt/data:/data
+        - /mnt/logs:/logs
+      env_file:
+        - ./app/env
+      networks:
+        - techvit-test-network
+    app2:
+      container_name: user-service-app-2
+      image: techvit/user-service-app
+      hostname: app2.local
+      restart: always
+      build: 
+        context: ./app/
+        dockerfile: Dockerfile
+      links:
+        - mongodb
+        - redis-cluster   
+      ports:
+      - "82"
+      - "8082:8080"
+      environment:
+        - "TZ=Asia/Kolkata"
+      volumes:
+        - /mnt/data:/data
+        - /mnt/logs:/logs
+      env_file:
+        - ./app/env
+      networks:
+        - techvit-test-network
+    app3:
+      container_name: user-service-app-3
+      image: techvit/user-service-app
+      hostname: app3.local
+      restart: always
+      build: 
+        context: ./app/
+        dockerfile: Dockerfile
+      links:
+        - mongodb
+        - redis-cluster   
+      ports:
+      - "83"
+      - "8083:8080"
+      environment:
+        - "TZ=Asia/Kolkata"
+      volumes:
+        - /mnt/data:/data
+        - /mnt/logs:/logs
+      env_file:
+        - ./app/env
+      networks:
+        - techvit-test-network
+    app4:
+      container_name: user-service-app-4
+      image: techvit/user-service-app
+      hostname: app4.local
+      restart: always
+      build: 
+        context: ./app/
+        dockerfile: Dockerfile
+      links:
+        - mongodb
+        - redis-cluster        
+      ports:
+      - "84"
+      - "8084:8080"
+      environment:
+        - "TZ=Asia/Kolkata"
+      volumes:
+        - /mnt/data:/data
+        - /mnt/logs:/logs
+      env_file:
+        - ./app/env
+      networks:
+        - techvit-test-network
+    mongodb:
+      container_name: user-service-mongodb
+      image: techvit/user-service-mongodb
+      hostname: mongodb.local
+      restart: always
+      volumes:
+        - /mnt/data:/data
+        - /mnt/logs:/logs
+      build:
+        context: ./mongodb/
+        dockerfile: Dockerfile
+      ports:
+      - "27017:27017"
+      environment:
+        - "TZ=Asia/Kolkata"
+      networks:
+        - techvit-test-network    
+    redis-cluster:
+      container_name: redis_cluster
+      image: techvit/redis_cluster
+      build:
+        context: ./redis_cluster/
+        dockerfile: Dockerfile
+        args:
+          redis_version: '3.2.9'
+      hostname: server
+      restart: always
+      volumes:
+        - /mnt/data/redis-data:/redis-data
+        - /mnt/logs:/logs
+      ports:
+        - "7000:7000"
+        - "7001:7001"
+        - "7002:7002"
+        - "7003:7003"
+        - "7004:7004"
+        - "7005:7005"
+        - "7006:7006"
+        - "7007:7007"
+      environment:
+        - "TZ=Asia/Kolkata"    
+      networks:
+        - techvit-test-network      
+networks:
+    techvit-test-network:
+      driver: bridge             

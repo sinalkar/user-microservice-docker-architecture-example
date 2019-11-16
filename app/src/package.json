@@ -1,0 +1,34 @@
+{
+  "name": "UserApp",
+  "version": "1.0.0",
+  "description": "Simple authentication system",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Brad Traversy",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "*",
+    "bluebird": "^3.5.1",
+    "body-parser": "*",
+    "compression": "^1.7.1",
+    "connect-flash": "*",
+    "connect-redis": "^3.3.2",
+    "cookie-parser": "^1.4.1",
+    "express": "*",
+    "express-handlebars": "*",
+    "express-messages": "*",
+    "express-session": "*",
+    "express-validator": "*",
+    "helmet": "^3.9.0",
+    "ioredis": "^3.2.1",
+    "mongodb": "*",
+    "mongoose": "*",
+    "passport": "*",
+    "passport-http": "*",
+    "passport-local": "*",
+    "serve-favicon": "https://registry.npmjs.org/serve-favicon/-/serve-favicon-2.4.5.tgz"
+  }
+}
