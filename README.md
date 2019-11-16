@@ -1,4 +1,4 @@
-# user-microservice-docker-architecture-example	**User-Service functionality:: **
+# user-microservice-docker-architecture-example
 Docker microservice architecture for user services 
 
 **User-Service functionality:: **
