@@ -64,3 +64,6 @@ app4:  http://localhost:8084
 5] Redis service runs on 6379 external port , we can connect redis using fastnosql tool
 
 [![user-microservice-docker-architecture](https://raw.githubusercontent.com/sinalkar/user-microservice-docker-architecture-example/master/User-Service.png "user-microservice-docker-architecture")](https://raw.githubusercontent.com/sinalkar/user-microservice-docker-architecture-example/master/User-Service.png "user-microservice-docker-architecture")
+
+Credit for Nodejs:https://github.com/bradtraversy/node_passport_login
+Credit for Docker :https://github.com/sinalkar/Nodevember
