@@ -65,5 +65,7 @@ app4:  http://localhost:8084
 
 [![user-microservice-docker-architecture](https://raw.githubusercontent.com/sinalkar/user-microservice-docker-architecture-example/master/User-Service.png "user-microservice-docker-architecture")](https://raw.githubusercontent.com/sinalkar/user-microservice-docker-architecture-example/master/User-Service.png "user-microservice-docker-architecture")
 
-Credit for Nodejs:https://github.com/bradtraversy/node_passport_login
-Credit for Docker :https://github.com/sinalkar/Nodevember
+
+# Credit Reference
+1] Nodejs:https://github.com/bradtraversy/node_passport_login
+2] Docker:https://github.com/InconceivableDuck/Nodevember
